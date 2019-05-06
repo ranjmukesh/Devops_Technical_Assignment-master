@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  nginx:
+    build: nginx
+    #command: "echo 'Running nginx reverse proxy.. Service up.. Listening on 0.0.0.0:8000'"
+    ports:
+      - "8000:8000"
+  countries:
+    build: countries
+    volumes:
+     - ./countries:/code
+
+  airports1:
+    build: airport1
+    volumes:
+      - ./airport1:/code
+
+  airports2:
+    build: airport2
+    volumes:
+      - ./airport2:/code
